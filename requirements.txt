@@ -1,0 +1,4 @@
+clipboard==0.0.4
+discord.py==2.3.2
+python-dotenv==1.0.1
+yt_dlp==2024.12.23
