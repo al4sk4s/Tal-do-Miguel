@@ -1,0 +1,2 @@
+Olá, para pedir ajuda, digite meu prefix em seguida de `help`!
+Hey, visite meu projeto no github! -> https://github.com/al4sk4s/Tal-do-Miguel
