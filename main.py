@@ -3,6 +3,7 @@ import dotenv
 import logging
 import discord
 from itertools import cycle
+from colorama import Fore, Back, Style
 from discord.ext import commands, tasks
 
 #variables
@@ -54,9 +55,12 @@ async def on_ready():
     for i in paths:
         for filename in os.listdir(i[0]):
             if filename.endswith('.py'):
-                print(f'> [ {num} - {filename[:-3]} ]')
-                await client.load_extension(f'{i[1]}.{filename[:-3]}')
-                num += 1
+                try:
+                    await client.load_extension(f'{i[1]}.{filename[:-3]}')
+                    print(Fore.LIGHTGREEN_EX + f'> [ {num} - {filename[:-3]} ]' + Style.RESET_ALL)
+                    num += 1
+                except:
+                    print(Fore.LIGHTRED_EX + f'!! [ {num} - {filename[:-3]} ]' + Style.RESET_ALL)
         
         print(f'[{i[0]}] loaded. . .')
 
