@@ -25,9 +25,13 @@ class radio(commands.Cog):
         if parar == None:
             if not ctx.voice_client:
                 if not ctx.author.voice.channel:
-                    await ctx.send('Por favor, entre em uma call para iniciar a radio')
-                else:
-                    await ctx.author.voice.channel.connect()
+                    await ctx.send('Por favor, entre em uma call para iniciar a radio'); return
+                
+                await ctx.author.voice.channel.connect()
+
+            elif ctx.voice_client.channel != ctx.author.voice.channel:
+                #await ctx.author.voice.channel.move_to()
+                await ctx.voice_client.move_to(ctx.author.voice.channel)
 
             if self.tocando[ctx.guild.id]["tocando"] == False:
                 stream_url = "https://stm6.xcast.com.br:9328/stream" #https://sws.onradio.biz:10875/;

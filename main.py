@@ -45,10 +45,10 @@ def find_file(name):
 #pra preparar o loop
 @client.event
 async def on_ready():
-    print('scanneando diretórios. . .')
+    print('searching for directories. . .')
     scanner()
     
-    print('load iniciado. . .')
+    print('starting to load. . .')
     num = 1
 
     for i in paths:
@@ -58,11 +58,11 @@ async def on_ready():
                 await client.load_extension(f'{i[1]}.{filename[:-3]}')
                 num += 1
         
-        print(f'[{i[0]}] carregadas. . .')
+        print(f'[{i[0]}] loaded. . .')
 
     change_status.start()
 
-    print('to on crai')
+    print('connected!')
 
 #o loop do status do tardomiugel
 @tasks.loop(seconds=10)
@@ -80,7 +80,7 @@ async def load(ctx, extension):
         except:
             await ctx.send('Não foi possivel carregar sua extensão')
     else:
-        await ctx.send('vc nao i adim')
+        await ctx.send("you're not an owner")
 
 #comando de unload
 @client.command(brief='descarrega uma extensão')
@@ -93,7 +93,7 @@ async def unload(ctx, extension):
         except:
             await ctx.send('Não foi possivel descarregar sua extensão')
     else:
-        await ctx.send('vc nao i adim')
+        await ctx.send("you're not an owner")
 
 #comando de reload
 @client.command(brief='recarrega uma extensão')
@@ -112,7 +112,7 @@ async def reload(ctx, extension=None):
         except:
             await ctx.send('Não foi possivel recarregar sua extensão')
     else:
-        await ctx.send('vc nao i adim')
+        await ctx.send("you're not an owner")
 
 #deleta cogs
 @client.command(brief='deleta uma extensão')
@@ -127,7 +127,7 @@ async def delete(ctx, extension):
         except:
             await ctx.send('deu erro, ou essa extensao nao existe mais')
     else:
-        await ctx.send('vc nao i adim')
+        await ctx.send("you're not an owner")
 
 #rodar o token
 client.run(discord_token, log_level=logging.WARNING)#, log_handler=None)

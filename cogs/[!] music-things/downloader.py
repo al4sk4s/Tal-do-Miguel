@@ -78,7 +78,7 @@ class downloader(commands.Cog):
             if url.startswith('https://open.spotify') == True:
                 await ctx.send('mano eu não to aceitando spotify ainda, vai xingar o gamer pra colocar isso'); return
 
-            if not ctx.message.author.voice.channel:
+            if not ctx.message.author.voice:
                 await ctx.send('Você não está em uma call ou eu nao vejo ela :('); return
 
             channel = ctx.message.author.voice.channel
@@ -164,21 +164,6 @@ class downloader(commands.Cog):
                 queue.append(eita)
                 qunt = int(len(queue))
                 await ctx.send(f'Sua musica foi colocada na playlist, `{queue[qunt-1]["name"]} : {queue[qunt-1]["duration"]}`')
-        
-    @commands.command()
-    async def turip(self,ctx):
-        await self.tocar(ctx,'https://www.youtube.com/watch?v=__CRWE-L45k')
-
-    @commands.command()
-    async def nword(self,ctx):
-        await self.tocar(ctx,'https://cdn.discordapp.com/attachments/913615138299465728/1154924708354068510/videoplayback_1.mp4')
-
-    @commands.command()
-    async def plei(self,ctx, *, eu = None):
-        if ctx.author.id == 442076414800298009:
-            await self.tocar(ctx, eu)
-        else:
-            await ctx.send('Vc naoe o cugasjuugas')
 
     @commands.command(brief='coloca a musica atual em loop')
     async def loop(self,ctx):
