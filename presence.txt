@@ -1,0 +1,2 @@
+Para pedir ajuda, digite meu prefix em seguida de `help`!
+github.com/al4sk4s/Tal-do-Miguel
