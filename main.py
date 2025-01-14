@@ -8,7 +8,7 @@ from discord.ext import commands, tasks
 
 #variables
 paths = []
-extensão = None
+extensao = None
 
 #set window title
 os.system("title Taldo Miguel2.0's bot rewrite")
@@ -34,14 +34,14 @@ def scanner():
     for folder in os.listdir('./cogs'):
         if folder.startswith('[!]'):
             print(f'[ ./cogs/{folder} ]')
-            paths.append([f'./cogs/{folder}', f'cogs.{folder}', os.getcwd()+f'\cogs\{folder}'])
+            paths.append([f'./cogs/{folder}', f'cogs.{folder}', os.getcwd()+f'\\cogs\\{folder}'])
 
 #file/cog finder
 def find_file(name):
     for i in paths:
         for filename in os.listdir(i[0]):
             if filename[:-3] == name:
-                return [f'{i[1]}.{name}', f'{i[2]}\{name}.py']
+                return [f'{i[1]}.{name}', f'{i[2]}\\{name}.py']
 
 #pra preparar o loop
 @client.event
@@ -102,17 +102,17 @@ async def unload(ctx, extension):
 #comando de reload
 @client.command(brief='recarrega uma extensão')
 async def reload(ctx, extension=None):
-    global extensão
+    global extensao
 
     if ctx.message.author.id == owner:
 
-        if extension == None and extensão == None:
+        if extension == None and extensao == None:
             await ctx.send('Nenhuma cog carregada no sistema para reload')
 
         try:
-            await client.reload_extension(find_file(extension if extension != None else extensão)[0])
-            if extension != None: extensão = extension
-            await ctx.send(f'[{extensão}] recarregada com sucesso')
+            await client.reload_extension(find_file(extension if extension != None else extensao)[0])
+            if extension != None: extensao = extension
+            await ctx.send(f'[{extensao}] recarregada com sucesso')
         except:
             await ctx.send('Não foi possivel recarregar sua extensão')
     else:

@@ -12,7 +12,7 @@ class cog_creator(commands.Cog):
     def scanner(self):
         for folder in os.listdir('./cogs'):
             if folder.startswith('[!]'):
-                self.paths.append([folder, os.getcwd()+f'\cogs\{folder}'])
+                self.paths.append([folder, os.getcwd()+f'\\cogs\\{folder}'])
     
     #file/cog finder
     def find_file(self, path, name):

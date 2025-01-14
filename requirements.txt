@@ -1,4 +1,5 @@
 clipboard==0.0.4
-discord.py==2.3.2
+colorama==0.4.6
+discord.py==2.4.0
 python-dotenv==1.0.1
-yt_dlp==2024.12.23
+yt_dlp==2025.1.12
